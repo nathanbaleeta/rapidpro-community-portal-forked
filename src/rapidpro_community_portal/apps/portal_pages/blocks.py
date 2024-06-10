@@ -1,4 +1,4 @@
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 
 from wagtail.core.blocks import CharBlock, IntegerBlock, RawHTMLBlock, RichTextBlock, StructBlock
 from wagtail.embeds.blocks import EmbedBlock
@@ -21,7 +21,7 @@ class VideoBlock(StructBlock):
     max_width = IntegerBlock(default=1024, help_text='Set maximum width of the video frame in pixels.')
 
     def get_searchable_content(self, value):
-        return [force_text(value)]
+        return [force_str(value)]
 
     class Meta:
         template = 'wagtail_blocks/video.html'
