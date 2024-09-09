@@ -2,7 +2,7 @@ FROM python:3.8.2-alpine as builder
 
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
-RUN apk update
+RUN apk upgrade --no-cache
 RUN apk add --upgrade apk-tools
 
 RUN apk add \
@@ -39,7 +39,7 @@ RUN pipenv install --system  --ignore-pipfile --deploy
 FROM python:3.8.2-alpine
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
-RUN apk update
+RUN apk upgrade --no-cache
 RUN apk add --upgrade apk-tools
 RUN apk add postgresql-client \
     openssl \
