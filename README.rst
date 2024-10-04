@@ -44,6 +44,11 @@ Create the Postgres database and run the initial migrate, which will also execut
     createdb -E UTF-8 rapidpro_community_portal
     python manage.py migrate
 
+You may need to set the ENV variable below in case it does not recognize it:
+```
+export DATABASE_URL=psql://postgres:pass@127.0.0.1:5432/rapidpro_community_portal
+```
+
 You should now be able to run the development server::
 
     python manage.py runserver
